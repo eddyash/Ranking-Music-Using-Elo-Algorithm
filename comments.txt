@@ -1,0 +1,1 @@
+<button class="btn btn-<%= i === 0 ? 'success' : 'info' %> mb-3" onclick="postData('<%= data[i]._id %>')">Vote</button>

@@ -1,0 +1,13 @@
+<% include ("_header") %>
+
+<h1 class="mb-3">Which song do you think is better?</h1>
+
+<% data.forEach((item) => { %>
+    <div>
+      <h3><%= item.name %></h3>
+      <p><%= item.author %></p>
+      <p><%= item.streams %></p>
+    </div>
+<% }); %>
+
+<% include ("_footer") %>

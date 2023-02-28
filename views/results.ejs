@@ -1,0 +1,16 @@
+<%- include ("_header") -%>
+<h2>Results</h2>
+<button onclick="refresh()" class="btn btn-primary mb-3">Refresh</button>
+  <ul>
+    <% for (let i = 0; i < data.length; i++) { %>
+      <li><%= data[i].name %> - <%= data[i].author %> - <%= data[i].rating %></li>
+    <% } %>
+  </ul>
+
+<h5>The End of Results</h5>
+<script>
+  function refresh(){
+    window.location.reload();
+  }
+</script>
+<%- include ("_footer") -%>

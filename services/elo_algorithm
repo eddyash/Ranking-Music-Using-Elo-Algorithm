@@ -1,0 +1,7 @@
+module.exports = function result (rating1, rating2) {
+    return (
+        1 + Math.pow(
+            10, (rating2 - rating1)/400
+        )
+    );
+}

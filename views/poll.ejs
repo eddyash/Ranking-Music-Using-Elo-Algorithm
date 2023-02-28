@@ -1,0 +1,43 @@
+<%- include ("_header") -%>
+
+<h1 class="mb-3">Which song do you think is better?</h1>
+<br/>
+
+
+<div>
+  <h3><%= data[0].name %></h3>
+  <h4><%= data[0].author %></h4>
+  <button class="btn btn-success mb-3" onclick="postData('<%= data[0]._id %>', '<%= data[1]._id %>', 1, 0)">Vote</button>
+</div>
+
+<div>
+  <h3><%= data[1].name %></h3>
+  <h4><%= data[1].author %></h4>
+  <button class="btn btn-info mb-3" onclick="postData('<%= data[1]._id %>', '<%= data[0]._id %>', 0, 1)">Vote</button>
+</div>
+
+<p class="mt-3">Can't decide? Click <button class="btn btn-warning" onclick="postData('<%= data[0]._id %>', '<%= data[1]._id %>', 0.5, 0.5)">here</button> to skip.</p>
+
+
+
+<script>
+  function postData(id1,id2, k1, k2) {
+    const data = {
+      id:id1,
+      sub_id:id2,
+      k1:k1,
+      k2:k2,
+    };
+
+    fetch(`/vote/${data.id}/${data.sub_id}/${data.k1}/${data.k2}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    window.location.reload();
+  }
+</script>
+
+<%- include ("_footer") -%>
